@@ -1,16 +1,42 @@
 import React from 'react';
+import { useDraggable } from '@dnd-kit/core';
 import { getChampionImageUrl } from '../data/champions';
 
-export default function ChampionCard({ champion, selected, onClick }) {
+export default function ChampionCard({ champion, onClick, isAssigned, isRecommendationOpen = false }) {
+  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+    id: `champion-${champion.name}`,
+    data: { type: 'champion', champion },
+    disabled: isRecommendationOpen, // Disable drag when recommendation panel is open
+  });
+
   const imageUrl = champion.image || getChampionImageUrl(champion.name);
+
+  const style = {
+    transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : 'translate3d(0, 0, 0)',
+    opacity: isDragging ? 0.5 : 1,
+    willChange: isDragging ? 'transform' : 'auto',
+  };
+
+  const handleClick = () => {
+    // Grid clicks should never do anything
+    // Recommendation panel has its own handler
+    // This prevents auto-fill of locked slots from grid
+    return;
+  };
 
   return (
     <button
+      ref={setNodeRef}
       type="button"
-      onClick={() => onClick(champion)}
-      className={`flex flex-col justify-center items-center gap-1.5 p-2 w-24 h-[120px] rounded-champ border bg-card-bg font-inter shrink-0 transition-all hover:border-opacity-80 ${
-        selected ? 'border-gold border-2 shadow-gold-glow' : 'border-[rgba(51,65,85,0.4)]'
-      }`}
+      onClick={handleClick}
+      {...listeners}
+      {...attributes}
+      style={style}
+      className={`flex flex-col justify-center items-center gap-1.5 p-2 w-24 h-[120px] rounded-champ border bg-card-bg font-inter shrink-0 transition-all hover:border-opacity-80 cursor-grab active:cursor-grabbing touch-none ${
+        isDragging ? 'opacity-50 scale-105 shadow-lg' : ''
+      } ${isRecommendationOpen ? 'border-blue-400 border-2 shadow-blue-glow' : 'border-[rgba(51,65,85,0.4)]'} ${
+        isAssigned ? 'opacity-60' : ''
+      } ${isRecommendationOpen && !isAssigned ? 'hover:scale-105 hover:shadow-lg' : ''}`}
     >
       <div className="rounded-champ-img overflow-hidden w-16 h-16 shrink-0 bg-bg-medium flex items-center justify-center">
         <img
