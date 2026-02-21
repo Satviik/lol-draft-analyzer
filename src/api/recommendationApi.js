@@ -1,6 +1,6 @@
 export async function fetchRecommendations(draftState) {
   try {
-    const response = await fetch("http://127.0.0.1:8000/recommend", {
+    const response = await fetch("http://54.234.101.8:8000/recommend", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
