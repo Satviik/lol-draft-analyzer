@@ -3,35 +3,35 @@ import React from 'react';
 const roleIcons = {
   Top: (
     <img
-    src="/public/Roleicons/top.png"
+    src="/Roleicons/top.png"
     alt="Top"
     className="w-10 h-10 object-contain"
   />
   ),
   Jungle: (
     <img
-    src="/public/Roleicons/jungle.png"
+    src="/Roleicons/jungle.png"
     alt="Jungle"
     className="w-10 h-10 object-contain"
   />
   ),
   Mid: (
     <img
-    src="/public/Roleicons/mid.png"
+    src="/Roleicons/mid.png"
     alt="Mid"
     className="w-10 h-10 object-contain"
   />
   ),
   ADC: (
     <img
-    src="/public/Roleicons/adc.png"
+    src="/Roleicons/adc.png"
     alt="ADC"
     className="w-10 h-10 object-contain"
   />
   ),
   Support: (
     <img
-    src="/public/Roleicons/sup.png"
+    src="/Roleicons/sup.png"
     alt="Support"
     className="w-10 h-10 object-contain"
   />
@@ -41,35 +41,35 @@ const roleIcons = {
 const filterRoleIcons = {
   Top: (
     <img
-    src="/public/Roleicons/filtertop.png"
+    src="/Roleicons/filtertop.png"
     alt="Top"
     className="w-10 h-10 object-contain"
   />
   ),
   Jungle: (
     <img
-    src="/public/Roleicons/filterjungle.png"
+    src="/Roleicons/filterjungle.png"
     alt="Jungle"
     className="w-10 h-10 object-contain"
   />
   ),
   Mid: (
     <img
-    src="/public/Roleicons/filtermid.png"
+    src="/Roleicons/filtermid.png"
     alt="Mid"
     className="w-10 h-10 object-contain"
   />
   ),
   ADC: (
     <img
-    src="/public/Roleicons/filteradc.png"
+    src="/Roleicons/filteradc.png"
     alt="ADC"
     className="w-10 h-10 object-contain"
   />
   ),
   Support: (
     <img
-    src="/public/Roleicons/filtersup.png"
+    src="/Roleicons/filtersup.png"
     alt="Support"
     className="w-10 h-10 object-contain"
   />
