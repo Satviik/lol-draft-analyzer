@@ -1,6 +1,6 @@
 export async function fetchRecommendations(draftState) {
   try {
-    const response = await fetch("http://54.234.101.8:8000/recommend", {
+    const response = await fetch("https://provident-ninfa-volar.ngrok-free.dev/recommend", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
